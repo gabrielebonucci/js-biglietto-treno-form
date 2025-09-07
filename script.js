@@ -1,7 +1,7 @@
 // Recupero gli elementi di input
 const kmInput = document.getElementById('user-km');
 const ageInput = document.getElementById('user-age');
-const nameInput = document.getElementById('user-age');
+const nameInput = document.getElementById('user-name');
 const calculateButton = document.getElementById('calculate-button');
 
 // recupero gli elementi di output (per milestone 2)
@@ -18,15 +18,23 @@ const discountSenior = 0.40;
 
 // AL CLICK DEL BOTTONE //
 // Aggiungo l'event listener al pulsante
-calculateButton.addEventListener('click', function() {
 
+calculateButton.addEventListener('click', function(event) {
+
+//Impedire il ricaricamento della pagina causato dal form
+    event.preventDefault();
+
+// Lettura input
     const km = parseFloat(kmInput.value);
     const age = parseInt(ageInput.value);
+    const userName = nameInput.value;
 
 // Calcolo il prezzo base (senza sconti)
 
     let basePrice = km * pricePerKm;
     let finalPrice = basePrice;
+    let offerType = "Tariffa Standard";
+
 
     let discountMessage = "Nessuno sconto applicato.";
 
@@ -37,7 +45,7 @@ calculateButton.addEventListener('click', function() {
         // Sottraggo lo sconto dal prezzo base per ottenere il prezzo finale
         finalPrice = basePrice - discountAmount;
         // Aggiorno il messaggio
-        discountMessage = `Sconto minorenni (20%) applicato: -${discountAmount.toFixed(2)} €`;
+        offerType = "Sconto Minorenni";
 
     } else if (age >= 65) {
         // Calcolo l'ammontare dello sconto
@@ -45,19 +53,17 @@ calculateButton.addEventListener('click', function() {
         // Sottraggo lo sconto dal prezzo base per ottenere il prezzo finale
         finalPrice = basePrice - discountAmount;
         // Aggiorno il messaggio
-        discountMessage = `Sconto over 65 (40%) applicato: -${discountAmount.toFixed(2)} €`;
+       offerType = "Sconto over 65";
     }
 
 // Output console
 
-console.log("--- Calcolo Biglietto ---");
-console.log(`Chilometri inseriti: ${km} km`);
-console.log(`Età inserita: ${age} anni`);
-console.log(`Prezzo base (senza sconti): ${basePrice.toFixed(2)} €`);
-console.log(discountMessage);
-console.log(`Prezzo finale: ${finalPrice.toFixed(2)} €`);
-});
+ticketNameOutput.innerHTML = userName;
+ticketOfferOutput.innerHTML = offerType;
+ticketPriceOutput.innerHTML = finalPrice.toFixed(2); + "€";
 
+ticketSection.style.display = 'block';
+});
 
 // Se nessuna delle condizioni è vera, il prezzo rimane quello base //
 
