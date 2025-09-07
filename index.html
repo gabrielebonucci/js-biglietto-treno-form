@@ -12,6 +12,10 @@
     <h1>Calcola il prezzo del tuo biglietto</h1>
 
     <div>
+        <label for="user-name">Nome e cognome</label>
+        <input type="text" id="user-name">
+    </div>
+    <div>
         <label for="user-km">Chilometri da percorrere</label>
         <input type="number" id="user-km">
     </div>
@@ -22,7 +26,30 @@
     </div>
 
     <div>
-        <button id="calculate-button">Calcola</button>
+        <button id="calculate-button">Genera biglietto/button>
+    </div>
+
+    <hr>
+
+    <div id="ticket-section">
+
+        <h2>IL TUO BIGLIETTO</h2>
+
+        <div>
+            <strong>Nome passeggero</strong>
+            <span id="ticket-name"></span>
+        </div>
+
+        <div>
+            <strong>Offerta</strong>
+            <span id="ticket-offer"></span>
+        </div>
+
+        <div>
+            <strong>Prezzo finale</strong>
+            <span id="ticket-price"></span>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
