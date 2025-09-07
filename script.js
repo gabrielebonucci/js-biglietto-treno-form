@@ -1,7 +1,15 @@
 // Recupero gli elementi di input
 const kmInput = document.getElementById('user-km');
 const ageInput = document.getElementById('user-age');
+const nameInput = document.getElementById('user-age');
 const calculateButton = document.getElementById('calculate-button');
+
+// recupero gli elementi di output (per milestone 2)
+const ticketSection = document.getElementById('ticket-section');
+const ticketNameOutput = document.getElementById('ticket-name');
+const ticketOfferOutput = document.getElementById('ticket-offer');
+const ticketPriceOutput = document.getElementById('ticket-price');
+
 
 // definisco le costanti del problema
 const pricePerKm = 0.21;
