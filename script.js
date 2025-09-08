@@ -63,6 +63,7 @@ calculateButton.addEventListener('click', function(event) {
         ticketOfferOutput.classList.add('bg-secondary');
 
     }
+});
 
 // Aggiungo l'event listener al pulsante "ANNULLA"
 
@@ -77,5 +78,3 @@ ticketOfferOutput.innerHTML = offerType;
 ticketPriceOutput.innerHTML = finalPrice.toFixed(2) + "€";
 
 ticketSection.classList.remove('d-none');
-});
-
