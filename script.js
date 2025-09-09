@@ -63,6 +63,12 @@ calculateButton.addEventListener('click', function(event) {
         ticketOfferOutput.classList.add('bg-secondary');
 
     }
+    
+    ticketNameOutput.innerHTML = userName;
+    ticketOfferOutput.innerHTML = offerType;
+    ticketPriceOutput.innerHTML = finalPrice.toFixed(2) + "€";
+
+    ticketSection.classList.remove('d-none');
 });
 
 // Aggiungo l'event listener al pulsante "ANNULLA"
@@ -73,8 +79,3 @@ calculateButton.addEventListener('click', function(event) {
 
 // Output console
 
-ticketNameOutput.innerHTML = userName;
-ticketOfferOutput.innerHTML = offerType;
-ticketPriceOutput.innerHTML = finalPrice.toFixed(2) + "€";
-
-ticketSection.classList.remove('d-none');
